@@ -1,1 +1,12 @@
-<p>letter-list.component works!</p>
+<ul>
+  @for (letter of letters; track letter.id) {
+    <li [class.read] = "letter.read">
+      <a [routerLink]="['/mailbox/letters', letter.id]">
+        {{ letter.sender }} -
+        {{ truncate(letter.subject) }} -
+        {{ truncate(letter.content) }} -
+        {{ letter.date }}
+      </a>
+    </li>
+  }
+</ul>

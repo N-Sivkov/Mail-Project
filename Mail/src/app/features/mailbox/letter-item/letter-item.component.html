@@ -1,1 +1,11 @@
-<p>letter-item.component works!</p>
+<div class="letter">
+    <h3>{{ letter()!.subject }}</h3><br>
+    <div class="letter-info">
+        <div class="to-from">
+            <b>{{ letter()!.sender }}</b><br>
+            <p>to: {{ letter()!.recipients.join(', ') }}</p>
+        </div>
+        <div class="date"><p>{{ letter()!.date }}</p></div>
+    </div><br>
+    {{ letter()!.content }}
+</div>

@@ -1,1 +1,11 @@
-<p>new-letter.component works!</p>
+<div class="backdrop" (click)="closeForm()"></div>
+
+<div class="compose-overlay">
+  <h3>New Letter</h3>
+
+  <input [(ngModel)]="subject" placeholder="Subject" />
+  <textarea [(ngModel)]="content"></textarea>
+
+  <button (click)="submit()">Send</button>
+  <button (click)="closeForm()">Cancel</button>
+</div>

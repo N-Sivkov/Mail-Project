@@ -1,7 +1,13 @@
 export interface Letter {
     id: number,
-    senderId: number, 
-    name: string,
+    senderId: number,
+    sender: string,
+    recipientIds: number[],
+    recipients: string[],
+    copyRecipientIds: number[], 
+    copyRecipients: string[],
+    subject: string,
     date: string, // to be converted in backend
-    content: string
+    content: string,
+    read: boolean
 }

@@ -1,1 +1,7 @@
-<p>mailbox.component works!</p>
+<button (click)="openInterface()">New Letter</button>
+
+@if (showInterface()) {
+  <app-new-letter (close)="closeInterface()"></app-new-letter>
+}
+
+<app-letter-list></app-letter-list>
