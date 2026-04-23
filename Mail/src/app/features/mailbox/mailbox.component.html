@@ -1,7 +1,13 @@
-<button (click)="openInterface()">New Letter</button>
+<div class="mailbox-toolbar">
+  <button (click)="openInterface()">New Letter</button>
+</div>
 
 @if (showInterface()) {
-  <app-new-letter (close)="closeInterface()"></app-new-letter>
+  <app-new-letter
+    [draft]="composeDraft()"
+    (close)="closeInterface()"
+    (sent)="onLetterSent()"
+  ></app-new-letter>
 }
 
-<app-letter-list></app-letter-list>
+<app-letter-list [filter]="currentFilter()"></app-letter-list>

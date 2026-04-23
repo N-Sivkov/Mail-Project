@@ -1,10 +1,10 @@
 <nav class="navbar">
   @if (isAuthenticated()) {
     <div class="headbar">
-      <a routerLink="/mailbox">Inbox</a>
+      <span>Logged in as {{ getCurrentUsername() }}</span>
       <button (click)="logout()">Logout</button>
     </div><br>
-    <div class="leftbar">
+    <div class="categories">
       @for (category of categories(); track category.id) {
         <a [routerLink]="['/mailbox', category.route]" routerLinkActive="active">
           {{ category.name }}

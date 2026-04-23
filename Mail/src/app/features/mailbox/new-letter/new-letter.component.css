@@ -1,0 +1,45 @@
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(17, 24, 39, 0.28);
+}
+
+.compose-overlay {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  width: min(480px, calc(100% - 32px));
+  padding: 20px;
+  background: #fff;
+  border: 1px solid #d9dde3;
+  border-radius: 16px;
+  box-shadow: 0 14px 32px rgba(15, 23, 42, 0.12);
+}
+
+.compose-overlay input,
+.compose-overlay textarea,
+.compose-overlay select {
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 12px;
+}
+
+.compose-overlay textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+.recipients {
+  margin-bottom: 12px;
+}
+
+.recipients label {
+  display: block;
+  margin-bottom: 6px;
+}
+
+.compose-overlay select[multiple] {
+  min-height: 140px;
+}

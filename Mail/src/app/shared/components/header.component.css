@@ -1,0 +1,41 @@
+.navbar {
+  margin-bottom: 20px;
+}
+
+.headbar,
+.categories {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.headbar span {
+  color: #4b5563;
+}
+
+.headbar a, .categories a {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 14px;
+  border: 1px solid #d5d9df;
+  border-radius: 999px;
+  background: #f1f3f5;
+  color: #4b5563;
+  text-decoration: none;
+  margin-right: 1%;
+}
+
+.headbar a:hover, .categories a:hover {
+  background-color: rgb(234, 234, 234);
+}
+
+.categories a.active {
+  background: #7db7ff;
+  border-color: #7db7ff;
+  color: #ffffff;
+}
+
+.categories a.active:hover {
+  background-color: #6595cf;
+}

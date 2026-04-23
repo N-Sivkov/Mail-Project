@@ -1,0 +1,82 @@
+form.filter-panel {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  margin-bottom: 16px;
+  padding: 12px;
+  border: 1px solid #d5d9df;
+  border-radius: 14px;
+  background: #f8fafc;
+}
+
+form.filter-panel label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+form.filter-panel select {
+  width: 100%;
+}
+
+.filter-actions {
+  display: flex;
+  gap: 8px;
+  align-items: end;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  border-bottom: 1px solid #e3e7ec;
+}
+
+.letter-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+a {
+  display: grid;
+  grid-template-columns: 15% 26% 1fr 150px;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  padding: 14px 10px;
+  color: inherit;
+  text-decoration: none;
+  border-radius: 12px;
+}
+
+li.read a {
+  background: #f3f4f6;
+}
+
+.letter-sender,
+.letter-subject,
+.letter-preview,
+.letter-date {
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.letter-date {
+  text-align: right;
+  color: #6b7280;
+}
+
+.letter-sender.unread,
+.letter-subject.unread {
+  font-weight: 700;
+}
+
+button {
+  margin-right: 8px;
+}

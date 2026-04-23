@@ -1,11 +1,26 @@
-<div class="letter">
-    <h3>{{ letter()!.subject }}</h3><br>
+@if (letter(); as currentLetter) {
+  <div class="letter">
+    <h3>{{ currentLetter.subject }}</h3><br>
     <div class="letter-info">
-        <div class="to-from">
-            <b>{{ letter()!.sender }}</b><br>
-            <p>to: {{ letter()!.recipients.join(', ') }}</p>
-        </div>
-        <div class="date"><p>{{ letter()!.date }}</p></div>
+      <div class="to-from">
+        <b>{{ currentLetter.sender }}</b><br>
+        <p>to: {{ currentLetter.recipients.join(', ') }}</p>
+      </div>
+      <div class="date"><p>{{ currentLetter.date }}</p></div>
     </div><br>
-    {{ letter()!.content }}
-</div>
+    <div class="actions">
+      <button (click)="toggleReadStatus()">
+        {{ currentLetter.read ? 'Mark as unread' : 'Mark as read' }}
+      </button>
+      <button (click)="forwardLetter()">Forward</button>
+      @if (canReply()) {
+        <button (click)="sendReply()">Reply</button>
+      }
+      <button (click)="toggleSpamStatus()">
+        {{ currentLetter.isSpam ? 'Remove from Spam' : 'Send to Spam' }}
+      </button>
+      <button (click)="deleteLetter()">Delete</button>
+    </div><br>
+    {{ currentLetter.content }}
+  </div>
+}

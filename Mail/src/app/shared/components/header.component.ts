@@ -1,25 +1,31 @@
-import { Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
 import { AuthService } from '../../core/services/auth/auth.service';
 import { RouterModule } from '@angular/router';
+import { signal } from '@angular/core';
 import { Category } from '../../features/mailbox/models/category.model';
-import { CategoryService } from '../../core/services/category/category.service';
+import { LetterService } from '../../core/services/letter/letter.service';
 
 @Component({
   selector: 'app-header',
   standalone: true,
   imports: [RouterModule],
-  templateUrl: './header.component.html'
+  templateUrl: './header.component.html',
+  styleUrl: './header.component.css'
 })
 export class HeaderComponent {
   categories = signal<Category[]>([]);
 
-  constructor(public authService: AuthService, private categoryService: CategoryService) {}
-
-  ngOnInit() {
-    this.categoryService.getCategories().subscribe(data => {
-      this.categories.set(data);
-    });
+  constructor(
+    public authService: AuthService,
+    private letterService: LetterService
+  ) {
+    if (this.authService.isAuthenticated()) {
+      this.letterService.getCategories().subscribe(categories => {
+        this.categories.set(categories);
+      });
+    }
   }
+  
 
   logout() {
     this.authService.logout();
@@ -27,5 +33,9 @@ export class HeaderComponent {
 
   isAuthenticated(): boolean {
     return this.authService.isAuthenticated();
+  }
+
+  getCurrentUsername(): string {
+    return this.authService.getCurrentUsername();
   }
 }

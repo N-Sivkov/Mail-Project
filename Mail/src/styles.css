@@ -1,1 +1,45 @@
-/* You can add global styles to this file, and also import other style files */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: #f7f8fa;
+  color: #1f2937;
+}
+
+body {
+  padding: 20px;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  background: #f8fafc;
+  color: #374151;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+input,
+select,
+textarea {
+  border: 1px solid #d5d9df;
+  border-radius: 10px;
+  background: #ffffff;
+  padding: 10px 12px;
+}
+
+a {
+  color: inherit;
+}
+
+button:hover {
+    background-color: rgb(234, 234, 234);
+}

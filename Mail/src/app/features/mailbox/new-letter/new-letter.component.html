@@ -3,8 +3,42 @@
 <div class="compose-overlay">
   <h3>New Letter</h3>
 
-  <input [(ngModel)]="subject" placeholder="Subject" />
-  <textarea [(ngModel)]="content"></textarea>
+  <div class="recipients">
+    <p>Recipients</p>
+    <select
+      [ngModel]="selectedRecipientIds()"
+      (ngModelChange)="selectedRecipientIds.set($event)"
+      name="recipientIds"
+      multiple
+      size="6"
+    >
+      @for (user of users(); track user.id) {
+        <option [ngValue]="user.id">{{ user.username }}</option>
+      }
+    </select>
+  </div>
+
+  <div class="recipients">
+    <p>Copy recipients</p>
+    <select
+      [ngModel]="selectedCopyRecipientIds()"
+      (ngModelChange)="selectedCopyRecipientIds.set($event)"
+      name="copyRecipientIds"
+      multiple
+      size="6"
+    >
+      @for (user of users(); track user.id) {
+        <option [ngValue]="user.id">{{ user.username }}</option>
+      }
+    </select>
+  </div>
+
+  <input [ngModel]="subject()" (ngModelChange)="subject.set($event)" placeholder="Subject" />
+  <textarea [ngModel]="content()" (ngModelChange)="content.set($event)"></textarea>
+
+  @if (errorMessage()) {
+    <p>{{ errorMessage() }}</p>
+  }
 
   <button (click)="submit()">Send</button>
   <button (click)="closeForm()">Cancel</button>

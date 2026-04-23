@@ -6,8 +6,11 @@ export interface Letter {
     recipients: string[],
     copyRecipientIds: number[], 
     copyRecipients: string[],
+    existsAt?: number[],
     subject: string,
     date: string, // to be converted in backend
     content: string,
-    read: boolean
+    read: boolean,
+    isSpam?: boolean,
+    threadId?: number | null
 }

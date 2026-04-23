@@ -1,12 +1,80 @@
-<ul>
-  @for (letter of letters; track letter.id) {
-    <li [class.read] = "letter.read">
-      <a [routerLink]="['/mailbox/letters', letter.id]">
-        {{ letter.sender }} -
-        {{ truncate(letter.subject) }} -
-        {{ truncate(letter.content) }} -
-        {{ letter.date }}
-      </a>
-    </li>
+<form class="filter-panel" (ngSubmit)="applyFilters()">
+  <label>
+    Sender
+    <select [ngModel]="senderId()" (ngModelChange)="senderId.set($event)" name="senderId">
+      <option value="">All</option>
+      @for (user of users(); track user.id) {
+        <option [value]="user.id">{{ user.username }}</option>
+      }
+    </select>
+  </label>
+
+  <label>
+    Recipient
+    <select
+      [ngModel]="recipientId()"
+      (ngModelChange)="recipientId.set($event)"
+      name="recipientId"
+    >
+      <option value="">All</option>
+      @for (user of users(); track user.id) {
+        <option [value]="user.id">{{ user.username }}</option>
+      }
+    </select>
+  </label>
+
+  <label>
+    Thread User
+    <select
+      [ngModel]="threadPartnerId()"
+      (ngModelChange)="threadPartnerId.set($event); onThreadPartnerChange()"
+      name="threadPartnerId"
+    >
+      <option value="">Select user</option>
+      @for (user of threadPartners(); track user.id) {
+        <option [value]="user.id">{{ user.username }}</option>
+      }
+    </select>
+  </label>
+
+  @if (shouldShowThreadSelector()) {
+    <label>
+      Thread
+      <select [ngModel]="threadId()" (ngModelChange)="threadId.set($event)" name="threadId">
+        <option value="">All</option>
+        @for (thread of availableThreads(); track thread.id) {
+          <option [value]="thread.id">{{ threadLabel(thread) }}</option>
+        }
+      </select>
+    </label>
   }
-</ul>
+
+  <div class="filter-actions">
+    <button type="submit">Apply Filters</button>
+    <button type="button" (click)="resetFilters()">Reset</button>
+  </div>
+</form>
+
+@if (visibleLetters().length) {
+  <ul>
+    @for (letter of visibleLetters(); track letter.id) {
+      <li [class.read]="letter.read">
+        <div class="letter-row">
+          <a [routerLink]="['/mailbox/letters', letter.id]">
+            <div class="letter-sender" [class.unread]="!letter.read">{{ letter.sender }}</div>
+            <div class="letter-subject" [class.unread]="!letter.read">{{ truncate(letter.subject) }}</div>
+            <div class="letter-preview">{{ truncate(letter.content) }}</div>
+            <div class="letter-date">{{ letter.date }}</div>
+          </a>
+          @if (canToggleSpamForLetter(letter)) {
+            <button (click)="toggleSpam(letter, $event)">
+              {{ isSpamFilter() ? 'Remove from Spam' : 'Send to Spam' }}
+            </button>
+          }
+        </div>
+      </li>
+    }
+  </ul>
+} @else {
+  <p>No messages found.</p>
+}
