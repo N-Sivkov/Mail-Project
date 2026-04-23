@@ -1,0 +1,435 @@
+{
+  "info": {
+    "_postman_id": "9f9e4e21-e2d9-4ab3-b435-e1dd877b70f7",
+    "name": "Mail-Project",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "53689029",
+    "_collection_link": "https://go.postman.co/collection/53689029-9f9e4e21-e2d9-4ab3-b435-e1dd877b70f7?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Signup",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/api/auth/signup/",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "auth",
+            "signup",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Login",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/api/auth/login/",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "auth",
+            "login",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get categories",
+      "request": {
+        "auth": {
+          "type": "bearer"
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/api/categories/",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "categories",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get user's messages",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/api/messages/",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "messages",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Inbox messages",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/api/messages/?category=<INBOX_ID>",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "messages",
+            ""
+          ],
+          "query": [
+            {
+              "key": "category",
+              "value": "<INBOX_ID>"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Sent messages",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/api/messages/?category=<SENT_ID>",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "messages",
+            ""
+          ],
+          "query": [
+            {
+              "key": "category",
+              "value": "<SENT_ID>"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Spam messages",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/api/messages/?category=<SPAM_ID>",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "messages",
+            ""
+          ],
+          "query": [
+            {
+              "key": "category",
+              "value": "<SPAM_ID>"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get messages by sender",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/api/messages/?sender=<USER_ID>",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "messages",
+            ""
+          ],
+          "query": [
+            {
+              "key": "sender",
+              "value": "<USER_ID>"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get messages by recipient",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/api/messages/?recipient=<USER_ID>",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "messages",
+            ""
+          ],
+          "query": [
+            {
+              "key": "recipient",
+              "value": "<USER_ID>"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get messages by thread",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/api/messages/?thread=<THREAD_ID>",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "messages",
+            ""
+          ],
+          "query": [
+            {
+              "key": "thread",
+              "value": "<THREAD_ID>"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get message by ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/api/messages/<MESSAGE_ID>/",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "messages",
+            "<MESSAGE_ID>",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create message",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/api/messages/",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "messages",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Change message",
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/api/messages/<MESSAGE_ID>/",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "messages",
+            "<MESSAGE_ID>",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Refactor message",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/api/messages/<MESSAGE_ID>/",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "messages",
+            "<MESSAGE_ID>",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete message",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/api/messages/<MESSAGE_ID>/",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "messages",
+            "<MESSAGE_ID>",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get thread partners",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/api/thread-partners/",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "thread-partners",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get threads with user",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/api/thread-partners/<USER_ID>/threads/",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "thread-partners",
+            "<USER_ID>",
+            "threads",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get swagger",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/swagger/",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "swagger",
+            ""
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
